@@ -1,6 +1,6 @@
 ### This is a code sample for [papw 2020](https://hzw77-demo.readthedocs.io/en/round2/index.html).
 
-# Preproc
+# Preprocess
 ### get_graph()
 Use the longitude and lantitude of the 11 nodes to calculate distance in real world, generating adjacency matrix. (For stage 3, the node number is 98)
 
