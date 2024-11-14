@@ -1,4 +1,4 @@
-### This is a code repo for [papw 2020](https://hzw77-demo.readthedocs.io/en/round2/api.html)
+### This is a code sample for [papw 2020](https://hzw77-demo.readthedocs.io/en/round2/api.html)
 
 # Preprocess.py
 ### get_graph()
@@ -16,3 +16,14 @@ In the training process, use all the overlapped sliding window data. In the test
 
 # papw_pipeline.py
 This is the attack model which is trying to decrease the output of the surrogate model. It use the previous 10 days with overlapped sliding window to predict the next day's intervention, outputing a graph mask. Then use the graph mask to get the modified graph and obtain surrogate model output with the 10 days and a modified graph. The loss function is designed to only have the infection number for now. The loss is updated every sliding window. In the test set, the process is similar with the surrogate model test process, only using the first 10 days from the original data, and then apply the sliding window to the original data with newly predicted data. The attack model also adopts newly predicted data.
+
+# How to obtain the original simulated data
+You should first follow the instruction of [papw 2020](https://hzw77-demo.readthedocs.io/en/round2/api.html) to download the dock file, and then use the command as follows:
+
+`docker run -it -v /path/starter-kit:/test episim2020/simulator`
+
+Replace the path to your path, and the enter the test file. Run `infection_total.py`. 
+
+The simulator provided some APIs to obtain the fetuares for each day, shown in [papw 2020](https://hzw77-demo.readthedocs.io/en/round2/api.html). The simulator will run 14 periods for each day, in my experiment, the data inside the 14 periods each day remains the same.
+
+In this implementation, 30 repeats were run, with obtaining current individual infected states for 98 nodes. For stage 1, 2, 4, 5, only the first 11 nodes are used. Besides, the location for each node is obtained through `location.py`. `test.py` is trying to obtain the newly discovered infection numbers for each node. The rest `.py` files are provided by papw.
