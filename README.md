@@ -5,7 +5,7 @@
 Use the longitude and lantitude of the 11 nodes to calculate distance in real world, generating adjacency matrix. (For stage 3, the node number is 98)
 
 ### get_new_sld_window()
-The input shape is (30, 5, 60, 99), in which 30 is the repeated simulator running time. 5 is the stages in each repeated simulation, with each stage simulated for 60 days. The 99 denotes that there are 98 nodes and 1 sum column with all nodes. Currently only the first 11 nodes were used to simulate stage 1, 2, 4, and 5. The difference between the 5 stages is shown in [papw 2020 - scenario](https://hzw77-demo.readthedocs.io/en/round2/scenario.html).
+The input shape is (30, 5, 60, 99), in which 30 is the repeated simulator running time. 5 is the stage number in each repeated simulation, with each stage simulated for 60 days. The 99 denotes that there are 98 nodes and 1 sum column with all nodes. Currently only the first 11 nodes were used to simulate stage 1, 2, 4, and 5. The difference between the 5 stages is shown in [papw 2020 - scenario](https://hzw77-demo.readthedocs.io/en/round2/scenario.html).
 
 For each 60 days, use a sliding window with horizon size of 10 days to predict the next 1 day. There are overlaps between each sliding window.
 
